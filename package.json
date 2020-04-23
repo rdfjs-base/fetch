@@ -4,7 +4,7 @@
   "description": "Wrapper for fetch to simplify sending and receiving RDF data",
   "main": "index.js",
   "scripts": {
-    "test": "standard && jest"
+    "test": "standard && mocha"
   },
   "repository": {
     "type": "git",
@@ -23,12 +23,12 @@
   "homepage": "https://github.com/rdfjs-base/fetch",
   "dependencies": {
     "@rdfjs/dataset": "^1.0.1",
-    "@rdfjs/fetch-lite": "^2.0.1",
+    "@rdfjs/fetch-lite": "^2.1.0",
     "@rdfjs/formats-common": "^2.0.1"
   },
   "devDependencies": {
     "@rdfjs/sink-map": "^1.0.1",
-    "jest": "^24.9.0",
+    "mocha": "^7.1.1",
     "nock": "^11.6.0",
     "standard": "^14.3.1"
   }

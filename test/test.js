@@ -1,5 +1,5 @@
-/* global describe, expect, it */
-
+const { strictEqual } = require('assert')
+const { describe, it } = require('mocha')
 const nock = require('nock')
 const rdf = require('@rdfjs/dataset')
 const rdfFetch = require('..')
@@ -7,14 +7,14 @@ const SinkMap = require('@rdfjs/sink-map')
 
 describe('@rdfjs/fetch', () => {
   it('should be a function', () => {
-    expect(typeof rdfFetch).toBe('function')
+    strictEqual(typeof rdfFetch, 'function')
   })
 
   it('should return a Promise', () => {
     const result = rdfFetch('http://example.org/')
 
-    expect(typeof result).toBe('object')
-    expect(typeof result.then).toBe('function')
+    strictEqual(typeof result, 'object')
+    strictEqual(typeof result.then, 'function')
   })
 
   it('should use formats common as default formats', async () => {
@@ -30,14 +30,18 @@ describe('@rdfjs/fetch', () => {
 
     await rdfFetch('http://example.org/formats-common')
 
-    expect([
+    const mediaTypes = [
       'application/ld+json',
       'application/trig',
       'application/n-quads',
       'application/n-triples',
       'text/n3',
       'text/turtle'
-    ].every(mediaType => accept.includes(mediaType))).toBe(true)
+    ]
+
+    mediaTypes.forEach(mediaType => {
+      strictEqual(accept.includes(mediaType), true)
+    })
   })
 
   it('should support custom formats', async () => {
@@ -62,7 +66,7 @@ describe('@rdfjs/fetch', () => {
       formats: customFormats
     })
 
-    expect(accept).toBe('application/ld+json, text/turtle')
+    strictEqual(accept, 'application/ld+json, text/turtle')
   })
 
   it('should use @rdfjs/dataset as default factory', async () => {
@@ -73,7 +77,7 @@ describe('@rdfjs/fetch', () => {
     const res = await rdfFetch('http://example.org/factory-default')
     const dataset = await res.dataset()
 
-    expect(dataset instanceof rdf.dataset().constructor).toBe(true)
+    strictEqual(dataset instanceof rdf.dataset().constructor, true)
   })
 
   it('should support custom factory', async () => {
@@ -93,6 +97,6 @@ describe('@rdfjs/fetch', () => {
     })
     const dataset = await res.dataset()
 
-    expect(dataset instanceof CustomDataset).toBe(true)
+    strictEqual(dataset instanceof CustomDataset, true)
   })
 })
