@@ -6,4 +6,6 @@ function rdfFetch (url, { factory = defaultFactory, formats = defaultFormats, ..
   return rdfFetchLite(url, { factory, formats, ...options })
 }
 
+rdfFetch.Headers = rdfFetchLite.Headers
+
 module.exports = rdfFetch
