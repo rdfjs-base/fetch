@@ -1,11 +1,12 @@
-const defaultFactory = require('@rdfjs/dataset')
-const defaultFormats = require('@rdfjs/formats-common')
-const rdfFetchLite = require('@rdfjs/fetch-lite')
+import defaultFactory from '@rdfjs/dataset'
+import rdfFetchLite, { Headers } from '@rdfjs/fetch-lite'
+import defaultFormats from '@rdfjs/formats-common'
 
 function rdfFetch (url, { factory = defaultFactory, formats = defaultFormats, ...options } = {}) {
   return rdfFetchLite(url, { factory, formats, ...options })
 }
 
-rdfFetch.Headers = rdfFetchLite.Headers
-
-module.exports = rdfFetch
+export {
+  rdfFetch as default,
+  Headers
+}

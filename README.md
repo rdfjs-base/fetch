@@ -6,6 +6,9 @@
 
 Wrapper for fetch to simplify sending and retrieving RDF data.
 
+Since version 3.0, this packages is [ESM](https://nodejs.org/api/esm.html) only.
+Check version 2.x if you are looking for a CommonJS package.
+
 ## Usage
 
 The package exports a `fetch` function which wraps the request and response object for on-the-fly RDF quad processing.
