@@ -1,4 +1,4 @@
-const rdfFetch = require('..')
+import rdfFetch from '../index.js'
 
 async function main () {
   try {

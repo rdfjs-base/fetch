@@ -1,9 +1,9 @@
-const { strictEqual } = require('assert')
-const { describe, it } = require('mocha')
-const nock = require('nock')
-const rdf = require('@rdfjs/dataset')
-const rdfFetch = require('..')
-const SinkMap = require('@rdfjs/sink-map')
+import { strictEqual } from 'assert'
+import rdf from '@rdfjs/dataset'
+import SinkMap from '@rdfjs/sink-map'
+import { describe, it } from 'mocha'
+import nock from 'nock'
+import rdfFetch from '../index.js'
 
 describe('@rdfjs/fetch', () => {
   it('should be a function', () => {
@@ -23,7 +23,7 @@ describe('@rdfjs/fetch', () => {
     nock('http://example.org')
       .get('/formats-common')
       .reply(200, function () {
-        accept = this.req.headers.accept[0]
+        accept = this.req.headers.accept
 
         return [200, '{}']
       })
@@ -50,7 +50,7 @@ describe('@rdfjs/fetch', () => {
     nock('http://example.org')
       .get('/formats-options')
       .reply(200, function () {
-        accept = this.req.headers.accept[0]
+        accept = this.req.headers.accept
 
         return [200, '{}']
       })
