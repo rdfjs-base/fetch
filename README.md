@@ -50,7 +50,7 @@ This example fetches the RDF Schema vocab and loops over all quad using the data
 For all `rdfs:label` quads the object value is written to the console.
 
 ```javascript
-const fetch = require('@rdfjs/fetch')
+import fetch from '@rdfjs/fetch'
 
 const label = 'http://www.w3.org/2000/01/rdf-schema#label'
 
