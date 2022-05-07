@@ -8,5 +8,6 @@ function rdfFetch (url, { factory = defaultFactory, formats = defaultFormats, ..
 
 export {
   rdfFetch as default,
+  defaultFormats,
   Headers
 }
