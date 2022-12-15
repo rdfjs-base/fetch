@@ -1,5 +1,5 @@
 # @rdfjs/fetch
-[![build status](https://img.shields.io/github/workflow/status/rdfjs-base/fetch/Test)](https://github.com/rdfjs-base/fetch/actions/workflows/test.yaml)
+[![build status](https://img.shields.io/github/actions/workflow/status/rdfjs-base/fetch/test.yaml?branch=master)](https://github.com/rdfjs-base/fetch/actions/workflows/test.yaml)
 [![npm version](https://img.shields.io/npm/v/@rdfjs/fetch.svg)](https://www.npmjs.com/package/@rdfjs/fetch)
 
 Wrapper for fetch to simplify sending and retrieving RDF data.
